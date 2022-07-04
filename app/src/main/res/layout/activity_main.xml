@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/titleDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/h0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/h0ButUp"
+        android:text="@string/h0"
+        android:textSize="12sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/h0ButUp"
+        android:text="@string/upSign"
+        style="@style/butStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/h0"
+        app:layout_constraintBottom_toTopOf="@+id/h0ButDown"/>
+
+    <Button
+        android:id="@+id/h0ButDown"
+        android:text="@string/downSign"
+        style="@style/butStyle"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/h0_value"
+        app:layout_constraintTop_toBottomOf="@+id/h0ButUp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/h0_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/h0ButDown"
+        android:text="@string/h0"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/parametersInPoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toRightOf="@id/h0"
+        app:layout_constraintRight_toLeftOf="@id/v0"
+        android:text="@string/parametersInPoint"
+        android:textSize="15sp"
+        android:textAlignment="center" />
+
+    <ru.nuykin.pointmovementcalculateapp.MyCanvas
+        android:id="@+id/myCanvas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startAnimateBut"
+        app:layout_constraintLeft_toRightOf="@+id/h0"
+        app:layout_constraintRight_toLeftOf="@+id/v0"
+        app:layout_constraintTop_toBottomOf="@+id/parametersInPoint" />
+
+    <Button
+        android:id="@+id/startAnimateBut"
+        android:text="@string/startAnimate"
+        style="@style/butStyle"
+        android:padding="0dp"
+        android:layout_width="0dp"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@id/h0_value"
+        app:layout_constraintRight_toLeftOf="@+id/v0_value"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/h0ButDown" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/v0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintRight_toLeftOf="@id/alpha"
+        app:layout_constraintLeft_toLeftOf="@+id/v0ButUp"
+        android:text="@string/v0"
+        android:textSize="12sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/v0ButUp"
+        android:text="@string/upSign"
+        style="@style/butStyle"
+        app:layout_constraintRight_toLeftOf="@id/alphaButUp"
+        app:layout_constraintTop_toBottomOf="@+id/v0"
+        app:layout_constraintBottom_toTopOf="@+id/v0ButDown"/>
+
+    <Button
+        android:id="@+id/v0ButDown"
+        android:text="@string/downSign"
+        style="@style/butStyle"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintRight_toLeftOf="@id/alphaButDown"
+        app:layout_constraintBottom_toTopOf="@+id/v0_value"
+        app:layout_constraintTop_toBottomOf="@+id/h0ButUp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/v0_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/alpha_value"
+        app:layout_constraintLeft_toLeftOf="@+id/v0ButDown"
+        android:text="@string/v0"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/alpha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/alphaButUp"
+        android:text="@string/alpha"
+        android:textSize="12sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/alphaButUp"
+        android:text="@string/upSign"
+        style="@style/butStyle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alpha"
+        app:layout_constraintBottom_toTopOf="@+id/alphaButDown"/>
+
+    <Button
+        android:id="@+id/alphaButDown"
+        android:text="@string/downSign"
+        style="@style/butStyle"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/h0_value"
+        app:layout_constraintTop_toBottomOf="@+id/h0ButUp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/alpha_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/alphaButDown"
+        android:text="@string/alpha"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

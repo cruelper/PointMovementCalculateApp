@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Калькулятор движения материальной точки в поле тяготения</string>
+    <string name="h0">h0</string>
+    <string name="v0">v0</string>
+    <string name="alpha">α</string>
+    <string name="parametersInPoint">Для показа параметров в нужной точке, нажмите на траекторию</string>
+    <string name="upSign">▲</string>
+    <string name="downSign">▼</string>
+    <string name="startAnimate">Начать анимацию</string>
+</resources>
