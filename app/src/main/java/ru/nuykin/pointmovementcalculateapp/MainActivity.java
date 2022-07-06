@@ -8,9 +8,15 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.google.android.material.textview.MaterialTextView;
+
+import java.text.DecimalFormat;
+import java.util.Map;
 
 public class MainActivity extends Activity {
     private PointMotionComputer pmc = new PointMotionComputer();
@@ -29,10 +35,31 @@ public class MainActivity extends Activity {
         TextView h0 = findViewById(R.id.h0); h0.setText(pmc.updateH0(pmc.getH0()));
         TextView v0 = findViewById(R.id.v0); v0.setText(pmc.updateV0(pmc.getV0()));
         TextView alpha = findViewById(R.id.alpha); alpha.setText(pmc.updateAlpha(pmc.getAlpha()));
+        TextView parametersInPoint = findViewById(R.id.parametersInPoint);
+
+        findViewById(R.id.myCanvas).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Map<Character, Double> map = ((MyCanvas)v).getValuesOnTouch(event);
+                if (!map.isEmpty()) {
+                    DecimalFormat df = new DecimalFormat("#0.00");
+                    parametersInPoint.setText(
+                            "x=" + df.format(map.get('x')) +
+                                    " h=" + df.format(map.get('h')) +
+                                    " alpha=" + df.format(map.get('a') / Math.PI * 180) +
+                                    " v=" + df.format(map.get('v')) +
+                                    " t=" + df.format(map.get('t'))
+                    );
+                }
+                return false;
+            }
+        });
 
         findViewById(R.id.startAnimateBut).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { ((MyCanvas) findViewById(R.id.myCanvas)).startAnimate(); }
+            public void onClick(View v) {
+                ((MyCanvas) findViewById(R.id.myCanvas)).startAnimate(pmc.calculate());
+            }
         });
 
         findViewById(R.id.h0ButUp).setOnClickListener(new View.OnClickListener() {
